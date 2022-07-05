@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
       req.body.password,
       process.env.PASS_KEY
     ).toString(),
-  });
+  });  
   try {
     const savedUser = await newUser.save();
     res.status(200).json(savedUser);
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
     );
     res.status(200).json({ ...others, accessToken });
   } catch (error) {
-    res.status(500).json(error);
+    // res.status(500).json(error);
   }
 });
 module.exports = router;
